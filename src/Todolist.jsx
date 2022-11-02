@@ -1,4 +1,5 @@
 import React from 'react'
+import Todo from './Todo'
 
 function Todolist() {
   console.log("Todolist component rendered")
@@ -20,12 +21,17 @@ function Todolist() {
       status:false
     },
   ])
+  function toggleTodoStatus(ind){
+    var temp = [...todos];
+    temp[ind].status=!temp[ind].status;
+    setTodos([...temp])
+  }
   return (
     <div className='mybox' style={{backgroundColor:'burlywood'}}>
       <h3>Todolist</h3>
       {
-        todos.map((todo)=>{
-          return (<li>{todo.title}</li>)
+        todos.map((todo,i)=>{
+          return (<Todo todo={todo} i={i} toggleTodoStatus={toggleTodoStatus}></Todo>)
         })
       }
     </div>
