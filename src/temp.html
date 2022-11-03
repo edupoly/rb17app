@@ -1,0 +1,28 @@
+<html>
+  <body>
+    <script>
+      var ob1 = {
+        firstname:'praveen',
+        age:39
+      }
+      var ob2 = ob1;
+
+      var num1 = 100;
+      var num2 = num1;
+
+      num2 = 200;
+      console.log(num1)
+
+      var ob3 = {
+        firstname:'praveen',
+        age:39
+      }
+      console.log(ob1===ob2);//true
+      console.log(ob2)
+      console.log(ob1)
+      ob2.age = 40;
+      console.log(ob2)
+      console.log(ob1)
+    </script>
+  </body>
+</html>
