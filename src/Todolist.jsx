@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import Todo from './Todo'
 
 function Todolist() {
@@ -21,17 +21,19 @@ function Todolist() {
       status:false
     },
   ])
-  function toggleTodoStatus(ind){
+
+  var toggleTodoStatus = useCallback((ind)=>{
     var temp = [...todos];
     temp[ind].status=!temp[ind].status;
     setTodos([...temp])
-  }
+  },[]) 
+
   return (
     <div className='mybox' style={{backgroundColor:'burlywood'}}>
       <h3>Todolist</h3>
       {
         todos.map((todo,i)=>{
-          return (<Todo todo={todo} i={i} toggleTodoStatus={toggleTodoStatus}></Todo>)
+          return (<Todo {...todo} i={i} toggleTodoStatus={toggleTodoStatus}></Todo>)
         })
       }
     </div>
