@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import useCounter from './counterHook'
 
 function H1Counter() {
-  var [count,inc,dec] = useCounter()
+  var [count,inc,dec] = useCounter(999,9)
 
   return (
     <div className='border border-dark p-2 m-2'>

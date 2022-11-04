@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import useCounter from './counterHook'
 
 function ButtonCounter() {
-  var [count,inc,dec]=useCounter()
+  var [count,inc,dec]=useCounter(200,10);
   return (
     <div className='border border-danger p-2 m-2'>
       ButtonCounter

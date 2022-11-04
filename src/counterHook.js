@@ -1,11 +1,11 @@
 import React,{useState} from 'react'
-function useCounter(){
-  const [count, setCount] = useState(0)
+function useCounter(init,step){
+  const [count, setCount] = useState(init)
   function inc(){
-    setCount(count+1)
+    setCount(count+step)
   }
   function dec(){
-    setCount(count-1)
+    setCount(count-step)
   }
   return [count,inc,dec]
 }
