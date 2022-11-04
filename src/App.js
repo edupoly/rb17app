@@ -1,24 +1,14 @@
 import logo from './logo.svg';
 import './App.css';
+import H1Counter from './H1Counter';
+import ButtonCounter from './ButtonCounter';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   <div className='border border-dark p-2 m-2'>
+    <H1Counter></H1Counter>
+    <ButtonCounter></ButtonCounter>
+   </div>
   );
 }
 
