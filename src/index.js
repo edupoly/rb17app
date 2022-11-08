@@ -7,11 +7,19 @@ import { BrowserRouter, Routes,Route } from 'react-router-dom';
 import First from './First';
 import Second from './Second';
 import Third from './Third';
+import Countries from './Countries';
+import CountryDetails from './CountryDetails';
+import CountriesChild from './CountriesChild';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<App></App>}>
+        <Route path="/countries" element={<Countries></Countries>}></Route>
+        <Route path="/countriesChild" element={<CountriesChild></CountriesChild>}>
+          <Route path='/countriesChild/countryDetails/:cname' element={<CountryDetails></CountryDetails>}></Route>
+        </Route>
+        <Route path="/countryDetails/:cname" element={<CountryDetails></CountryDetails>}></Route>
         <Route path="/xyz" element={<Second></Second>}>
           <Route path='/xyz/first' element={<First></First>}></Route>
         </Route>
