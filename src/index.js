@@ -4,7 +4,25 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import '../node_modules/bootstrap/dist/js/bootstrap'
+import {
+    createBrowserRouter,
+    RouterProvider,
+    Route,
+  } from "react-router-dom";
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+const router = createBrowserRouter([
+    {
+      path: "/",
+      element: (<App></App>),
+    },
+    {
+      path: "addProduct",
+      element: (<AddProducts></AddProducts>)
+    },
+  ]);
+
+import AddProducts from './AddProducts';
 root.render(
     <App />
 );
