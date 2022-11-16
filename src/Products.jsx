@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 import { deleteProduct } from './store/actions/product.actions'
 
 function Products({ products,deleteProd }) {
@@ -20,6 +21,7 @@ function Products({ products,deleteProd }) {
                   <button onClick={()=>{
                     deleteProd(product.id)
                   }}>Delete</button>
+                  <Link to={`/editProduct/${product.id}`}>Edit</Link>
                 </div>
               </div>
             )

@@ -1,21 +1,43 @@
 import React from 'react'
+import { useState } from 'react'
+import { connect } from 'react-redux'
+import { addProduct } from './store/actions/product.actions'
 
-function AddProducts() {
+function AddProducts(props) {
+  console.log(props)
+  const [newproduct, setNewproduct] = useState({
+    "title":'',
+    "price": 0,
+    "description": "",
+    "category": "",
+    "image": "",
+    "rating": {
+        "rate": 0,
+        "count": 0
+    }
+  })
   return (
-    <div>AddProducts</div>
+    <div>
+      <h1>AddProducts</h1>
+      <div>
+        Title:<input type="text" onChange={(e)=>{setNewproduct({...newproduct,title:e.target.value})}}/><br/>
+        Price:<input type="text" onChange={(e)=>{setNewproduct({...newproduct,price:e.target.value})}}/><br/>
+        Description:<input type="text" onChange={(e)=>{setNewproduct({...newproduct,description:e.target.value})}}/><br/>
+        Category:<input type="text" onChange={(e)=>{setNewproduct({...newproduct,category:e.target.value})}}/><br/>
+        Image:<input type="text" onChange={(e)=>{setNewproduct({...newproduct,image:e.target.value})}}/><br/>
+        Rate:<input type="text" onChange={(e)=>{setNewproduct({...newproduct,rating:{
+          ...newproduct.rating,rate:e.target.value
+        }})}}/><br/>
+        Count:<input type="text" onChange={(e)=>{setNewproduct({...newproduct,rating:{
+          ...newproduct.rating,count:e.target.value
+        }})}}/><br/>
+        <button onClick={()=>{
+          props.dispatch(addProduct(newproduct))
+          console.log(newproduct)
+        }}>Add Product</button>
+      </div>
+    </div>
   )
 }
 
-export default AddProducts
-// {
-//   "id": 1,
-//   "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
-//   "price": 109.95,
-//   "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
-//   "category": "men's clothing",
-//   "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
-//   "rating": {
-//       "rate": 3.9,
-//       "count": 120
-//   }
-// }
+export default connect(store=>store)(AddProducts)

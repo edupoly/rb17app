@@ -4,27 +4,26 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import '../node_modules/bootstrap/dist/js/bootstrap'
-import {
-    createBrowserRouter,
-    RouterProvider,
-    Route,
-  } from "react-router-dom";
-const root = ReactDOM.createRoot(document.getElementById('root'));
-
-const router = createBrowserRouter([
-    {
-      path: "/",
-      element: (<App></App>),
-    },
-    {
-      path: "addProduct",
-      element: (<AddProducts></AddProducts>)
-    },
-  ]);
-
 import AddProducts from './AddProducts';
+import {
+    BrowserRouter,
+    Routes,
+    Route
+  } from "react-router-dom";
+import Products from './Products';
+import EditProduct from './EditProduct';
+const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <App />
+    <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<App></App>}>
+        <Route path='/products' element={<Products></Products>}></Route>
+        <Route path="/addProducts" element={<AddProducts></AddProducts>}></Route>
+        <Route path="/editProduct/:id" element={<EditProduct></EditProduct>}></Route>
+      </Route>
+        
+    </Routes>
+  </BrowserRouter>
 );
 
 // If you want to start measuring performance in your app, pass a function
