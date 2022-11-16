@@ -2,7 +2,7 @@ import React from 'react'
 import { useState,useEffect } from 'react'
 import { connect } from 'react-redux'
 import { useParams } from 'react-router-dom'
-import { addProduct } from './store/actions/product.actions'
+import { addProduct, updateProduct } from './store/actions/product.actions'
 
 function EditProducts(props) {
   console.log(props)
@@ -21,7 +21,7 @@ function EditProducts(props) {
     }
   })
   useEffect(() => {
-    
+
   }, [])
   
   return (
@@ -40,7 +40,7 @@ function EditProducts(props) {
           ...selectedProduct.rating,count:e.target.value
         }})}}/><br/>
         <button onClick={()=>{
-          props.dispatch(editProduct(selectedProduct))
+          props.dispatch(updateProduct(selectedProduct))
           console.log(selectedProduct)
         }}>Edit Product</button>
       </div>
