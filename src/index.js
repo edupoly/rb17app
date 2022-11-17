@@ -4,14 +4,15 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import '../node_modules/bootstrap/dist/js/bootstrap'
-import AddProducts from './AddProducts';
 import {
     BrowserRouter,
     Routes,
     Route
   } from "react-router-dom";
-import Products from './Products';
-import EditProduct from './EditProduct';
+
+import AddProducts from './components/AddProducts'
+import Products from './components/Products'
+import EditProduct from './components/EditProduct'
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <BrowserRouter>

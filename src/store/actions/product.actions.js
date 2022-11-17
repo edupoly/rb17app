@@ -1,5 +1,4 @@
-export const productUrl = 'http://localhost:4000/products/';
-
+import { productUrl } from "../../services/ulrs"
 export function getProducts(){
   return (dispatch)=>{
     fetch(productUrl)

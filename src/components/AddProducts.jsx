@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import { connect } from 'react-redux'
-import { addProduct } from './store/actions/product.actions'
+import { addProduct } from '../store/actions/product.actions'
 
 function AddProducts(props) {
   console.log(props)

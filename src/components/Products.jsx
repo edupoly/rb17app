@@ -1,7 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { deleteProduct } from './store/actions/product.actions'
+import { deleteProduct } from '../store/actions/product.actions'
+
 
 function Products({ products,deleteProd }) {
   // console.log("Product Props::")

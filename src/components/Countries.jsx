@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { getCountries } from './store/actions/countries.actions'
+import { getCountries } from '../store/actions/countries.actions'
 
 function Countries(props) {
   console.log(props)
