@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Todo from './Todo';
 
 export default class Todolist extends Component {
   constructor(){
@@ -14,6 +15,14 @@ export default class Todolist extends Component {
         document.getElementById('newtodo').value=''
       })
     }
+  }
+  deleteTodo=(index)=>{
+    var c = window.confirm("Are you sure doctor")
+    if(c){
+      var temp = [...this.state.todos];
+      temp.splice(index,1);
+      this.setState({todos:[...temp]})
+    }
     
   }
   render() {
@@ -25,7 +34,7 @@ export default class Todolist extends Component {
         <button onClick={this.addTodo}>Add Todo</button>
         {
           this.state.todos.map((todo,i)=>{
-            return (<li key={i}>{todo}</li>)
+            return (<Todo key={i} todo={todo} i={i} deleteTodo={this.deleteTodo}></Todo>)
           })
         }
       </div>

@@ -1,11 +1,22 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 
-class Counter extends PureComponent {
+class Counter extends Component {
   constructor(props){
     super();
     this.state={
-      count:props.initialValue
+      count:0
     }
+  }
+  static getDerivedStateFromProps(props, state){
+    if(state.count===0){
+      state.count=props.initialValue
+    }
+  }
+  shouldComponentUpdate(){
+    if(this.state.count===200){
+      return true
+    }
+    return false
   }
   inc=()=>{
     this.setState({count:this.state.count+this.props.step})

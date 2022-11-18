@@ -1,6 +1,7 @@
 import React from 'react'
 import Counter from './Counter';
 import Todolist from './Todolist';
+import Todoliststaus from './Todoliststaus';
 
 class App extends React.Component{
   constructor(){
@@ -15,8 +16,9 @@ class App extends React.Component{
         <h1>Lets understand Class Components:{this.state.myname}</h1>
         <input type="text" onChange={(e)=>{this.setState({myname:e.target.value})}}/>
         <Counter initialValue={100} step={10}></Counter>
-        <Counter initialValue={10} step={5}></Counter>
+        {/* <Counter initialValue={10} step={5}></Counter> */}
         <Todolist></Todolist>
+        <Todoliststaus></Todoliststaus>
       </div>
     )
   }
