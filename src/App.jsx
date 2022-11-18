@@ -1,25 +1,22 @@
 import React from 'react'
+import Counter from './Counter';
+import Todolist from './Todolist';
 
 class App extends React.Component{
   constructor(){
     super();
     this.state={
-      count:0
+      myname:''
     }
-  }
-  inc=()=>{
-    this.setState({count:this.state.count+1})
-  }
-  dec=()=>{
-    this.setState({count:this.state.count-1})
   }
   render(){
     return(
       <div className='border border-danger border-2 m-2 p-2'>
-        <h1>Lets understand Class Components</h1>
-        <h1>Count:{this.state.count}</h1>
-        <button onClick={this.inc}>Increment</button>
-        <button onClick={this.dec}>Decrement</button>
+        <h1>Lets understand Class Components:{this.state.myname}</h1>
+        <input type="text" onChange={(e)=>{this.setState({myname:e.target.value})}}/>
+        <Counter initialValue={100} step={10}></Counter>
+        <Counter initialValue={10} step={5}></Counter>
+        <Todolist></Todolist>
       </div>
     )
   }
